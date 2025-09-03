@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Контактная информация.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Мой сайт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Мой сайт</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav aria-label="breadcrumb">
+        <ol>
+            <li><a href="index.html">Главная</a></li>
+            <li>Контакты</li>
+        </ol>
+    </nav>
+
+    <main>
+        <section id="contact-info">
+            <h2>Связаться с нами</h2>
+            <p>Телефон: +7 123 456-78-90</p>
+            <p>Email: null@mysite.ru</p>
+            <p>Адрес: г. Москва, ул. Примерная, д.1</p>
+        </section>
+
+        <section id="form">
+            <h2>Форма обратной связи</h2>
+            <form>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+
+        <aside>
+            <p>Следите за нами в соцсетях: <a href="#">vk</a>, <a href="#">telegram</a></p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Мой сайт. Все права защищены.</p>
+    </footer>
+</body>
+</html>
