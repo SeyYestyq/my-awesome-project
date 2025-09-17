@@ -1,0 +1,233 @@
+/* БАЗА: читаемость и предсказуемость размеров */
+* { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; 
+    line-height: 1.5; 
+}
+
+/* Сохраняем Tailwind стили из исходного сайта */
+.bg-gray-50 { background-color: #f9fafb; }
+.text-gray-800 { color: #1f2937; }
+.bg-white { background-color: #ffffff; }
+.shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+.p-6 { padding: 1.5rem; }
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.font-bold { font-weight: 700; }
+.text-blue-600 { color: #2563eb; }
+.gap-6 { gap: 1.5rem; }
+.hover\:text-blue-800:hover { color: #1e40af; }
+.font-medium { font-weight: 500; }
+.bg-gray-100 { background-color: #f3f4f6; }
+.p-3 { padding: 0.75rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.gap-2 { gap: 0.5rem; }
+.hover\:underline:hover { text-decoration: underline; }
+.max-w-4xl { max-width: 56rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.space-y-8 > * + * { margin-top: 2rem; }
+.rounded-lg { border-radius: 0.5rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.font-semibold { font-weight: 600; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.p-4 { padding: 1rem; }
+.border-l-4 { border-left-width: 4px; }
+.rounded { border-radius: 0.25rem; }
+.border-t { border-top-width: 1px; }
+.text-center { text-align: center; }
+.text-gray-500 { color: #6b7280; }
+
+/* Формы: размеры, отступы, визуальный порядок */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label { 
+    display: block; 
+    margin: 0 0 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    max-width: 480px;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Кнопки */
+.btn-primary, [type="submit"] {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    max-width: none;
+    width: auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    max-width: none;
+    width: auto;
+    padding: 0.75rem 1.5rem;
+}
+
+.bg-blue-600 {
+    background-color: #2563eb;
+}
+
+.hover\:bg-blue-800:hover, .btn-primary:hover {
+    background-color: #1e40af;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+/* Состояния: клавиатура/мышь/ошибки */
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid #2563eb; 
+    outline-offset: 2px;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.focus-visible\:ring-2:focus-visible {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #2563eb;
+}
+
+.focus-visible\:ring-blue-500:focus-visible {
+    --tw-ring-color: #3b82f6;
+}
+
+.focus-visible\:ring-offset-2:focus-visible {
+    --tw-ring-offset-width: 2px;
+}
+
+button:hover { 
+    filter: brightness(0.95); 
+}
+
+:disabled, [aria-disabled="true"] { 
+    opacity: 0.6; 
+    cursor: not-allowed; 
+}
+
+/* Подсветка ошибочных полей */
+[aria-invalid="true"] { 
+    border-color: #dc2626;
+    background-color: #fef2f2;
+}
+
+.help-text {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Модальные окна */
+dialog {
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 50px 60px -20px rgba(0, 0, 0, 0.1), 0 20px 40px -20px rgba(0, 0, 0, 0.04);
+    max-width: 90vw;
+    width: 100%;
+    max-width: 520px;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.dialog-content {
+    padding: 2rem;
+}
+
+.dialog-content h2 {
+    margin: 0 0 1.5rem;
+    color: #2563eb;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.success-dialog {
+    text-align: center;
+}
+
+.success-dialog p {
+    margin: 1rem 0 2rem;
+    color: #374151;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    dialog {
+        max-width: 95vw;
+    }
+    
+    .dialog-content {
+        padding: 1.5rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}
+
+/* Дополнительные стили для улучшения UX */
+input:invalid {
+    animation: none;
+}
+
+/* Анимация для smooth открытия модалки */
+dialog[open] {
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
