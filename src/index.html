@@ -10,7 +10,110 @@
     <meta property="og:title" content="Главная - Apple Store">
     <meta property="og:description" content="Продажа iPhone по всей России. Официальные устройства Apple с гарантией.">
     <meta property="og:image" content="https://img.icons8.com/glyph-neue/64/FFFFFF/mac-os.png">
+    <style>
+        dialog {
+            padding: 30px;
+            border: none;
+            border-radius: 12px;
+            width: 450px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        input, textarea {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+        
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        #closeDialog {
+            background-color: #6c757d;
+            color: white;
+        }
+        .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+    display: none;
+}
+.success-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1001;
+    display: none;
+}
+input[aria-invalid="true"], 
+textarea[aria-invalid="true"] {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+input[aria-invalid="false"],
+textarea[aria-invalid="false"] {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
+}
+:where(input, select, textarea, button):focus-visible {
+    outline: 2px solid #0a84ff; 
+    outline-offset: 2px;
+}
+
+dialog::backdrop { 
+    background: rgba(0,0,0,.5); 
+}
+        </style>
+    
 </head>
+
 <body>
     <header>
         <a href="index.html">Apple Store</a>
@@ -19,6 +122,7 @@
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="about.html">О нас</a></li>
                 <li><a href="contacts.html">Контакты</a></li>
+                <li><button id="openDialog" type ="button">Обратная связь</button></li>
             </ul>
         </nav>
     </header>
@@ -46,9 +150,9 @@
 
         <section id="review">
             <h2>Отзывы</h2>
-            <p>Здесь вы можете ознакомиться с отзывами наших клиентов.</p>
+            <p>Здесь вы можете ознакомиться с отзывами наших клиентов</p>
             <a href="#services">Вернуться к услугам</a>
-            <a href="#contacts">Связаться с нами</a>
+            
         </section>
         <section id="contacts">
             <h2>Контактная информация</h2>
@@ -56,10 +160,37 @@
             <a href="contacts.html">Подробнее</a>
         </section>
     </main>
-
+    <dialog id="contactDialog">
+    <h2>Обратная связь</h2>
+    <div id="errorMessage" class="error-message"></div>
+    <form id="contactForm">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="phone" required 
+       pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" 
+       placeholder="+7 (xxx) xxx-xx-xx"> 
+       
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+        
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message"></textarea>
+        
+        <div class="form-buttons">
+            <button id="closeDialog" type="button">Закрыть</button>
+            <button type="submit">Отправить</button>
+        </div>
+    </form>
+</dialog>
+<div id="successNotification" class="success-notification">
+    Сообщение отправлено успешно!
+</div>
     <footer>
         <p>&copy; 2025 Apple Store. Все права защищены.</p>
-
+        
     </footer>
+    <script src="../main.js"></script>    
 </body>
 </html>
